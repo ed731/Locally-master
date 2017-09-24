@@ -1,2 +1,2 @@
-#    GROUP_3
-     Team Repo for Group_3
+#    Project_3
+     Team Repo for Project_3
