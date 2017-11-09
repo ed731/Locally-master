@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "672009132081",
+    "firebase_url": "https://sapphiredb-15c20.firebaseio.com",
+    "project_id": "sapphiredb-15c20",
+    "storage_bucket": "sapphiredb-15c20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672009132081:android:4ae748593483f12e",
+        "android_client_info": {
+          "package_name": "com.example.danny.locally"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672009132081-pi658djlc09r749ng30mfp6avaj7g052.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDcipqHGE_z6rll0G81EOQSrZQV7xduSg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
