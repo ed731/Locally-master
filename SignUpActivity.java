@@ -33,10 +33,13 @@ public class SignUpActivity extends AppCompatActivity
     // Confirm Password Edit Text
     private EditText confirmPasswordInputText;
 
+    //Prograss Dialog
+    private ProgressDialog progressDialog;
     // Firebase Authentication object
     private FirebaseAuth mAuth;
     // Firebase Authentication State Listener object
     private FirebaseAuth.AuthStateListener mAuthListener;
+
 
     // Called when the activity is created
     @Override
@@ -58,6 +61,8 @@ public class SignUpActivity extends AppCompatActivity
 
         // Initialize the Firebase Authentication
         mAuth = FirebaseAuth.getInstance();
+        
+        progressDialog = new ProgressDialog(SignUpActivity.this);
         // Intialize the Firebase Authentication listener to track whenever user is signs in or out
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -140,6 +145,10 @@ public class SignUpActivity extends AppCompatActivity
         else if(!name.isEmpty() && !email.isEmpty() &&
                 !password.isEmpty() && !confirm_password.isEmpty() &&
                 password.equals(confirm_password)
+                 //showing progress dialog if all fields are entered
+                 progressDialog.setMessage("Registering User");
+                 progressDialog.show();
+                
                 )
         {
             mAuth.createUserWithEmailAndPassword(email,password)
@@ -157,6 +166,8 @@ public class SignUpActivity extends AppCompatActivity
                                 Log.w(TAG, "create userwithEmail:failed", task.getException());
                                 Toast.makeText(SignUpActivity.this,"Authentication failed", Toast.LENGTH_SHORT).show();
                             }
+                            //hiding progress dialog after all tasts are complete
+                            progressDialog.dismiss();
                         }
                     });
 
