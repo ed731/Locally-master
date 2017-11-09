@@ -1,5 +1,7 @@
+
 package com.example.danny.locally;
 
+import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,7 +36,7 @@ public class SignUpActivity extends AppCompatActivity
     private EditText confirmPasswordInputText;
 
     //Prograss Dialog
-    private ProgressDialog progressDialog;
+    ProgressDialog progressDialog;
     // Firebase Authentication object
     private FirebaseAuth mAuth;
     // Firebase Authentication State Listener object
@@ -61,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity
 
         // Initialize the Firebase Authentication
         mAuth = FirebaseAuth.getInstance();
-        
+
         progressDialog = new ProgressDialog(SignUpActivity.this);
         // Intialize the Firebase Authentication listener to track whenever user is signs in or out
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -145,12 +147,12 @@ public class SignUpActivity extends AppCompatActivity
         else if(!name.isEmpty() && !email.isEmpty() &&
                 !password.isEmpty() && !confirm_password.isEmpty() &&
                 password.equals(confirm_password)
-                 //showing progress dialog if all fields are entered
-                 progressDialog.setMessage("Registering User");
-                 progressDialog.show();
-                
+        //showing progress dialog if all fields are entered
+
+
                 )
-        {
+        {    progressDialog.setMessage("Registering User");
+            progressDialog.show();
             mAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
